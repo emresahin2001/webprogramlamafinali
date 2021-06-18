@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+        <title>Corona Virus</title>
+    </head>
+    <body>
+
+        <h1>Covid-19 Table</h1>
+        
+        
+        <div class="container">
+            <table id="CoronaTable" class="display" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Country</th>
+                        <th>Country Code</th>
+                        <th>Province</th>
+                        <th>City</th>
+                        <th>City Code</th>
+                        <th>Lat</th>
+                        <th>Lon</th>
+                        <th>Confirmed</th>
+                        <th>Deaths</th>
+                        <th>Recovered</th>
+                        <th>Active</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Country</th>
+                        <th>Country Code</th>
+                        <th>Province</th>
+                        <th>City</th>
+                        <th>City Code</th>
+                        <th>Lat</th>
+                        <th>Lon</th>
+                        <th>Confirmed</th>
+                        <th>Deaths</th>
+                        <th>Recovered</th>
+                        <th>Active</th>
+                        <th>Date</th>
+                    </tr>
+                </tfoot>
+            </table>
+          </div>
+          <div>
+            <canvas id="myChart"></canvas>
+          </div>
+          <script>
+            var ctx = document.getElementById('myChart');  /*  api'daki 30.gündeki aktif vaka sayıları marttan hazirana kadar vardı */
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Mart', 'Nisan', 'Mayıs','Haziran'],
+                    datasets: [{
+                        label: 'Aylık Aktif Vaka Sayısı',
+                        data: [104660, 291232, 403705, 84779],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(255, 99, 132, 0.2)',
+                            
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)'
+                            
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            </script>
+       
+          
+          <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+          <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
+          <script src="api.js"></script>
+    </body>
+</html>
